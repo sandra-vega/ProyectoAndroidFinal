@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.example.sandra.finalminota.MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -22,12 +23,70 @@
 
     <include layout="@layout/content_main" />
 
+    <LinearLayout
+        android:id="@+id/lnl_nota_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/lbl_nota_add"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_nota_add" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_nota_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/note_outline"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnl_tarea_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="128dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/lbl_tarea_add"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_tarea_add" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_tarea_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/note_text"/>
+    </LinearLayout>
+
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/plus" />
 
 </android.support.design.widget.CoordinatorLayout>

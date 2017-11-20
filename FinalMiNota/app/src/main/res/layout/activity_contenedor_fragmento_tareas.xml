@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.sandra.finalminota.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context="com.example.sandra.finalminota.contenedor_fragmento_tareas">
 
     <FrameLayout
-        android:id="@+id/frag_lista"
+        android:id="@+id/frag_contenedor_tarea"
         android:layout_width="368dp"
         android:layout_height="495dp">
     </FrameLayout>

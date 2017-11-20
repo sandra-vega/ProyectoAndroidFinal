@@ -3,8 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.sandra.finalminota.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/itm_eliminar"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:orderInCategory="90"
+        android:title="Eliminar"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/itm_compartir"
+        android:icon="@android:drawable/ic_menu_share"
+        android:orderInCategory="80"
+        android:title="Compartir"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/itm_buscar"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:icon="@android:drawable/ic_menu_search"
+        android:orderInCategory="70"
+        android:title="Buscar"
+        app:showAsAction="ifRoom|collapseActionView" />
+
 </menu>
