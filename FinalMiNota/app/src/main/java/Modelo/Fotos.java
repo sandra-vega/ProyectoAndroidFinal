@@ -1,5 +1,6 @@
 package Modelo;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 
 /**
@@ -9,10 +10,24 @@ import android.net.Uri;
 public class Fotos {
     private String descripcion;
     private Uri imagenId;
+    private Bitmap imagenIdT;
 
     public Fotos(String descripcion, Uri imagenId) {
         this.descripcion = descripcion;
         this.imagenId = imagenId;
+    }
+
+    public Fotos(String descripcion, Bitmap imagenIdT) {
+        this.descripcion = descripcion;
+        this.imagenIdT = imagenIdT;
+    }
+
+    public Bitmap getImagenIdT() {
+        return imagenIdT;
+    }
+
+    public void setImagenIdT(Bitmap imagenIdT) {
+        this.imagenIdT = imagenIdT;
     }
 
     public String getDescripcion() {

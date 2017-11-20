@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,7 +12,7 @@
 
         <ImageView
             android:id="@+id/img_fotos_lista"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="150dp"
             android:layout_marginRight="@dimen/button_margin"
             android:layout_marginTop="@dimen/fab_margin"
@@ -23,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/button_margin"
-            android:layout_marginTop="@dimen/fab_margin">
+            android:layout_marginTop="50dp">
 
             <EditText
                 android:id="@+id/txt_descripcion_fotos"

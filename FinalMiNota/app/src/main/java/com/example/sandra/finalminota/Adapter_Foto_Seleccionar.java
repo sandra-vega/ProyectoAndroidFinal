@@ -15,17 +15,17 @@ import Modelo.Fotos;
  * Created by sandra on 19/11/2017.
  */
 
-public class Adapter_Foto extends RecyclerView.Adapter<Adapter_Foto .ViewHolder>{
+public class Adapter_Foto_Seleccionar extends RecyclerView.Adapter<Adapter_Foto_Seleccionar.ViewHolder>{
 
     ArrayList<Fotos> listaFotos;
 
-    public Adapter_Foto(ArrayList<Fotos> listaFotos) {
+    public Adapter_Foto_Seleccionar(ArrayList<Fotos> listaFotos) {
         this.listaFotos = listaFotos;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_foto,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_seleccionar_foto,null,false);
         return new ViewHolder(view);
     }
 
@@ -33,6 +33,7 @@ public class Adapter_Foto extends RecyclerView.Adapter<Adapter_Foto .ViewHolder>
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.descripcion_foto.setText(listaFotos.get(position).getDescripcion());
         holder.foto_lista.setImageURI(listaFotos.get(position).getImagenId());
+
     }
 
     @Override
