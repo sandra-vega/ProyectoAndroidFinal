@@ -18,4 +18,6 @@
     <string name="lbl_add_aviso">Añadir recordatorio</string>
     <string name="lbl_tarea_add">Tarea</string>
     <string name="lbl_nota_add">Nota</string>
+    <string name="itm_camara">Camara</string>
+    <string name="itm_audio">Audio</string>
 </resources>

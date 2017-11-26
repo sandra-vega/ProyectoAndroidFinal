@@ -1,0 +1,65 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sandra.mi_nota.Fragment_Foto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_fotos_lista"
+            android:layout_width="match_parent"
+            android:layout_height="252dp"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/aadd_image" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/button_margin"
+            android:layout_marginTop="50dp">
+
+            <EditText
+                android:id="@+id/txt_descripcion_fotos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/txt_descripcion"
+                android:ems="10"
+                android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/fab_margin">
+
+            <Button
+                android:id="@+id/btn_guardarFS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_guardar"
+                android:background="@color/colorPrimaryDark"
+                android:layout_margin="@dimen/button_margin"
+                android:padding="@dimen/button_margin"
+                android:textColor="@color/primary_light"/>
+
+            <Button
+                android:id="@+id/btn_cancelarFS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_cancelar"
+                android:background="@color/colorPrimaryDark"
+                android:layout_margin="@dimen/button_margin"
+                android:padding="@dimen/button_margin"
+                android:textColor="@color/primary_light"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

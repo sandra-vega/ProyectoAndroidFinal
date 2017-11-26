@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_tarea"
+            android:icon="@drawable/tarea"
+            android:title="@string/nav_tarea" />
+        <item
+            android:id="@+id/nav_nota"
+            android:icon="@drawable/nota"
+            android:title="@string/nav_nota" />
+        <item
+            android:id="@+id/nav_foto"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/nav_foto" />
+        <item
+            android:id="@+id/nav_video"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/nav_video" />
+
+    </group>
+
+    <item android:title="Comunicate">
+        <menu>
+            <item
+                android:id="@+id/nav_compartir"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/nav_conpartir" />
+            <item
+                android:id="@+id/nav_configurar"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/nav_configurar" />
+        </menu>
+    </item>
+
+</menu>

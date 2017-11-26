@@ -19,9 +19,9 @@
                 android:id="@+id/lbl_nota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/icons"
+                android:background="@color/divider"
                 android:text="@string/lbl_nota"
-                android:textColor="@color/primary_light"
+                android:textColor="@color/icons"
                 android:textSize="22dp"
                 />
 
@@ -53,62 +53,6 @@
                     android:inputType="textMultiLine" />
 
             </android.support.design.widget.TextInputLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcy_lista_fotos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcy_lista_fotos_t"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcy_lista_videos"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/fab_margin"
-                android:paddingLeft="@dimen/centrar_margin"
-                >
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/img_camara"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/button_margin"
-                    android:padding="@dimen/button_margin"
-                    app:backgroundTint="@color/icons"
-                    app:fabSize="normal"
-                    app:srcCompat="@drawable/camera" />
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/img_video"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/button_margin"
-                    android:padding="@dimen/button_margin"
-                    app:backgroundTint="@color/icons"
-                    app:fabSize="normal"
-                    app:srcCompat="@drawable/camcorder" />
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/img_audio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/button_margin"
-                    android:padding="@dimen/button_margin"
-                    app:backgroundTint="@color/icons"
-                    app:fabSize="normal"
-                    app:srcCompat="@drawable/microphone" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

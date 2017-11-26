@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Mi _nota</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="itm_camara">Camara</string>
+    <string name="itm_audio">Audio</string>
+    <string name="nav_tarea">Tareas</string>
+    <string name="nav_nota">Notas</string>
+    <string name="nav_foto">Fotos</string>
+    <string name="nav_video">Videos</string>
+    <string name="nav_conpartir">Compartir</string>
+    <string name="nav_configurar">Configurar</string>
+    <string name="lbl_nota_add">Nota</string>
+    <string name="lbl_tarea_add">Tarea</string>
+    <string name="lbl_nota">Nota</string>
+    <string name="txt_titulo">Titulo</string>
+    <string name="txt_descripcion">Descripcion</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="lbl_tarea">Tarea</string>
+    <string name="lbl_vencimiento">Vencimiento</string>
+    <string name="lbl_repecticion">Repeticion</string>
+    <string name="lbl_aviso">Aviso</string>
+    <string name="lbl_add_aviso">Añadir recordatorio</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="itm_video">Video</string>
+    <string name="btn_video_add">Nuevo video</string>
+</resources>

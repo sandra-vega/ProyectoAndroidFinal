@@ -1,21 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.sandra.finalminota.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/itm_audio"
-        android:icon="@drawable/microphone"
-        android:orderInCategory="90"
+        android:orderInCategory="100"
         android:title="@string/itm_audio"
-        app:showAsAction="ifRoom" />
-
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/itm_video"
+        android:orderInCategory="90"
+        android:title="@string/itm_video"
+        app:showAsAction="never" />
     <item
         android:id="@+id/itm_camara"
-        android:icon="@drawable/camera"
         android:orderInCategory="80"
         android:title="@string/itm_camara"
-        app:showAsAction="ifRoom" />
-
+        app:showAsAction="never" />
     <item
         android:id="@+id/itm_buscar"
         app:actionViewClass="android.support.v7.widget.SearchView"
