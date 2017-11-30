@@ -7,6 +7,17 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.sandra.mi_nota.MainActivity"
     tools:showIn="@layout/app_bar_main">
+    <FrameLayout
+        android:id="@+id/frg_lista_recyclerview"
+        android:layout_width="368dp"
+        android:layout_height="495dp">
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frg_lista"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

@@ -47,7 +47,7 @@ public class Fragment_Foto extends Fragment {
             @Override
             public void onClick(View v) {
                 mosatrarDialogoOpcionesCamara();
-                Toast.makeText(getActivity(),"hola",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"hola",Toast.LENGTH_SHORT).show();
             }
         });
 

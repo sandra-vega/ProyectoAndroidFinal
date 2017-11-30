@@ -1,12 +1,17 @@
 package com.example.sandra.mi_nota;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -22,13 +27,26 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+
+
+import java.util.ArrayList;
+
+import Modelo.DAONota;
+import Modelo.Notas;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Comunicador {
+
+
 
     private static final int SOLICITUD_PERMISO_CAMERA = 0;
     private static final int SOLICITUD_PERMISO_ESCRIBIR_MEMORIA = 1;
     private static final int SOLICITUD_PERMISO_LEER_MEMORIA = 2;
     private static final int SOLICITUD_PERMISO_RECORD_AUDIO=3;
+
+
+    //private Activity actividad;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +54,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         final FloatingActionButton fab_add = (FloatingActionButton) findViewById(R.id.fab_add);
         FloatingActionButton fab_nota = (FloatingActionButton) findViewById(R.id.fab_nota_add);
@@ -46,7 +66,6 @@ public class MainActivity extends AppCompatActivity
         final Animation hide_Button = AnimationUtils.loadAnimation(MainActivity.this, R.anim.hide_button);
         final Animation show_layout = AnimationUtils.loadAnimation(MainActivity.this, R.anim.show_layout);
         final Animation hide_layout = AnimationUtils.loadAnimation(MainActivity.this, R.anim.hide_layout);
-
 
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +94,12 @@ public class MainActivity extends AppCompatActivity
                 lnl_tarea.startAnimation(hide_layout);
                 fab_add.startAnimation(hide_Button);
 
-                Intent i =new Intent(getBaseContext(), contenedor_fragmento_nota.class);
-                startActivity(i);
+                Fragment newFrag =new Fragment_Nota();
+
+                FragmentTransaction t= getSupportFragmentManager().beginTransaction();
+                t.replace(R.id.frg_lista_recyclerview,newFrag);
+                t.addToBackStack(null);
+                t.commit();
             }
         });
         fab_tarea.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +126,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -229,7 +254,12 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_tarea) {
             // Handle the camera action
         } else if (id == R.id.nav_nota) {
+            Fragment newFrag =new fragmento_lista_recyclerview();
 
+            FragmentTransaction t= getSupportFragmentManager().beginTransaction();
+            t.replace(R.id.frg_lista_recyclerview,newFrag);
+            t.addToBackStack(null);
+            t.commit();
         } else if (id == R.id.nav_foto) {
 
         } else if (id == R.id.nav_video) {
@@ -243,5 +273,31 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void responder(String id, String titulo, String descripcion, String fecha) {
+
+
+        //Toast.makeText(this,id+" "+titulo+" "+descripcion+" "+fecha,Toast.LENGTH_LONG).show();
+        /*FragmentManager fragmentManager = getSupportFragmentManager();
+
+        Fragment_Editar_Nota fragmentoDos = (Fragment_Editar_Nota) fragmentManager.findFragmentById(R.id.fragment);
+
+        fragmentoDos.cambiarTexto(id,titulo,descripcion,fecha);**/
+        String  arreglo [] ={id,titulo,descripcion,fecha};
+
+        Fragment_Editar_Nota nuevoFragment = new Fragment_Editar_Nota();
+        Bundle args = new Bundle();
+        //args.putInt(Fragment_Editar_Nota.ARG_ID_LIBRO, Integer.parseInt(id));
+        args.putStringArray(Fragment_Editar_Nota.ARG_ID_LIBRO,arreglo);
+        nuevoFragment.setArguments(args);
+        FragmentTransaction transaccion = getSupportFragmentManager()
+                .beginTransaction();
+        transaccion.replace(R.id.frg_lista_recyclerview, nuevoFragment);
+        transaccion.addToBackStack(null);
+
+        transaccion.commit();
+
     }
 }

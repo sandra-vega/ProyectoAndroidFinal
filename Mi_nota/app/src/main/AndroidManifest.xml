@@ -25,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".contenedor_fragmento_nota" />
         <activity android:name=".contenedor_fragmento_tareas" />
         <activity android:name=".contenedor_fragment_foto" />
         <activity android:name=".contenedor_fragment_video"></activity>
