@@ -42,7 +42,7 @@ public class MiSQLiteOpenHelper extends SQLiteOpenHelper {
     private  final String SCRIPT_TABLE_IMAGEN="create table " + TABLE_IMAGEN_NAME + "(" +
             COLUMNS_NAME_TABLE_IMAGEN[0] + " integer primary key autoincrement, " +
             COLUMNS_NAME_TABLE_IMAGEN[1] + " varchar(200) not null, " +
-            COLUMNS_NAME_TABLE_IMAGEN[2] + " varchar(100) not null, " +
+            COLUMNS_NAME_TABLE_IMAGEN[2] + " blob not null, " +
             COLUMNS_NAME_TABLE_IMAGEN[3] + " date null " +
             ");";
     public static final String  TABLE_VIDEO_NAME="video";

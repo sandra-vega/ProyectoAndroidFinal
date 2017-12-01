@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,6 +30,11 @@
                 android:ems="10"
                 android:inputType="textMultiLine" />
         </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/lbl_fecha_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fab_margin"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -47,19 +52,8 @@
                 android:layout_margin="@dimen/button_margin"
                 android:padding="@dimen/button_margin"
                 android:textColor="@color/primary_light"/>
-
-            <Button
-                android:id="@+id/btn_cancelarFS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btn_cancelar"
-                android:background="@color/colorPrimaryDark"
-                android:layout_margin="@dimen/button_margin"
-                android:padding="@dimen/button_margin"
-                android:textColor="@color/primary_light"/>
         </LinearLayout>
 
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView>

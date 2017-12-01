@@ -11,17 +11,27 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import Modelo.DAOImagen;
+import Modelo.Imagen;
 
 public class Fragment_Foto extends Fragment {
     private static final int COD_SELECCION_CAMARA =10 ;
@@ -33,15 +43,22 @@ public class Fragment_Foto extends Fragment {
     private static final String DIRECCTORIO_IMAGEN = CARPETA_PRINCIPAL + CARPETA_IMAGEN;
     private String path;
     File fileImagen;
-    Bitmap bitmap;
-
     ImageView seleccion_foto;
+    DAOImagen objetoDAO;
+    Bitmap bmp;
+    TextView lbl_fecha;
+    EditText txt_descripcion_imagen;
+
+    Button guardar_foto;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_foto, container, false);
 
         seleccion_foto = view.findViewById(R.id.img_fotos_lista);
+        lbl_fecha = view.findViewById(R.id.lbl_fecha_foto);
+        txt_descripcion_imagen = view.findViewById(R.id.txt_descripcion_fotos);
+        objetoDAO = new DAOImagen(getContext());
 
         seleccion_foto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +67,44 @@ public class Fragment_Foto extends Fragment {
                 //Toast.makeText(getActivity(),"hola",Toast.LENGTH_SHORT).show();
             }
         });
+        guardar_foto = view.findViewById(R.id.btn_guardarFS);
+
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        String formattedDate = df.format(c.getTime());
+        lbl_fecha.setText(formattedDate);
+
+        guardar_foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bmp.compress(Bitmap.CompressFormat.JPEG, 100 , baos);
+                byte[] blob = baos.toByteArray();
+                Imagen ob=new Imagen(txt_descripcion_imagen.getText().toString(),blob,
+                        lbl_fecha.getText().toString());
+                objetoDAO.insert(ob);
+                Confirmacion();
+                FragmentManager fm = getFragmentManager();
+                fm.popBackStack();
+                getActivity().getFragmentManager().popBackStack();
+
+
+            }
+        });
 
         return view;
+    }
+    public void Confirmacion(){
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getActivity());
+        dlgAlert.setMessage("La Imagen se ha agregado exitosamente!");
+        dlgAlert.setTitle("Agregar Imagen");
+        dlgAlert.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        dlgAlert.setCancelable(true);
+        dlgAlert.create().show();
     }
 
     private void mosatrarDialogoOpcionesCamara() {
@@ -120,8 +173,9 @@ public class Fragment_Foto extends Fragment {
                                 e.printStackTrace();
                             }
                             // Transformamos la URI de la imagen a inputStream y este a un Bitmap
-                            Bitmap bmp = BitmapFactory.decodeStream(imageStream);
+                            bmp = BitmapFactory.decodeStream(imageStream);
                             // Ponemos nuestro bitmap en un ImageView que tengamos en la vista
+                            /*Toast.makeText(getActivity(),"pueva "+bmp,Toast.LENGTH_LONG).show();*/
                             seleccion_foto.setImageBitmap(bmp);
                         }
                     }
@@ -135,8 +189,8 @@ public class Fragment_Foto extends Fragment {
                                 Log.i("Path",""+path);
                             }
                         });
-                bitmap= BitmapFactory.decodeFile(path);
-                seleccion_foto.setImageBitmap(bitmap);
+                bmp= BitmapFactory.decodeFile(path);
+                seleccion_foto.setImageBitmap(bmp);
                 break;
         }
     }

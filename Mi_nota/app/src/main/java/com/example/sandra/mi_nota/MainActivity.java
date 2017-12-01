@@ -182,8 +182,12 @@ public class MainActivity extends AppCompatActivity
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
-            Intent j =new Intent(getBaseContext(), contenedor_fragment_foto.class);
-            startActivity(j);
+            Fragment newFrag =new Fragment_Foto();
+
+            FragmentTransaction t= getSupportFragmentManager().beginTransaction();
+            t.replace(R.id.frg_lista_recyclerview,newFrag);
+            t.addToBackStack(null);
+            t.commit();
         } else {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.CAMERA},
@@ -261,6 +265,12 @@ public class MainActivity extends AppCompatActivity
             t.addToBackStack(null);
             t.commit();
         } else if (id == R.id.nav_foto) {
+            Fragment newFrag =new fragmento_lista_imagen_recyclerview();
+
+            FragmentTransaction t= getSupportFragmentManager().beginTransaction();
+            t.replace(R.id.frg_lista_recyclerview,newFrag);
+            t.addToBackStack(null);
+            t.commit();
 
         } else if (id == R.id.nav_video) {
 
